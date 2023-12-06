@@ -1,0 +1,66 @@
+<head>
+    <title>Blog Posts</title>
+    <link rel="stylesheet" href="../static/cssFiles/blogPosts.css">
+</head>
+<bod>
+    {% extends 'base.html' %}
+    {% block content %}
+        <div class="content-container">
+            <div class="main-content">
+                <h2 class="second-header">Blog Posts</h2> 
+                {% if posts%}
+                    {% for post in posts%}
+                        <div class="blog-post">
+                            <h2>{{post.title}}</h2>
+                            <p class="blog-post-details">
+                                Written By: <span>{{post.blog_creator.name}}</span><br/>
+                                Date Published: <span>{{post.date_posted.strftime('%d %m %y')}}</span><br/>
+                                Description: <span>{{post.slug}}</span>
+                            </p>
+                            
+                            <a href="{{ url_for('single_post', id=post.id)}}" class="viewBlog-post-button">View Post</a>
+                        </div>
+                        <br/>
+                    {% endfor %}
+                {%else%}
+                    <div class="no-results">
+                        <p>Ther are no blogs here yet....</p>
+                        <p>Be the first one to post something</p>
+                        <p>To learn more about LeedsLinked go to to the home page by clicking LeedsLinked and scrool down</p>
+                    </div>
+                {%endif%}
+            </div>
+            <div class="sidebar">
+                <h3>My Blogs</h3>
+                <a href="{{ url_for('add_post')}}" class="sidebar-add-post-button">Add Post</a>
+                {% if user_posts%}
+                    {% for user_post in user_posts%}
+                        <div class="myBlog-post">
+                            <h2>{{user_post.title}}</h2>
+                            <p class="myBlog-post-details">
+                                Written By: <span>You</span><br/>
+                                Date Published: <span>{{user_post.date_posted.strftime('%d %m %y')}}</span><br/>
+                                Description: <span>{{user_post.slug}}</span>
+                            </p>
+
+                            <a href="{{ url_for('single_post', id=user_post.id)}}" class="sidebar-viewBlog-post-button">View Post</a>
+                            <a href="{{ url_for('delete_post', id=user_post.id)}}" class="sidebar-delete-post-button">Delete Post</a>
+                            <a href="{{ url_for('edit_post', id=user_post.id)}}" class="sidebar-viewBlog-post-button">Edit Post</a>
+                        </div>
+                        <br/>
+                    {% endfor %}
+
+                    <br>
+                    <br/>
+                    <br/>
+                {%else%}
+                    <div class="no-results">
+                        <p>It's a bit quite here...</p>
+                        <p>Add some blog posts and start adding to the online community</p>
+                        <p>To learn more about LeedsLinked go to to the home page by clicking LeedsLinked and scrool down</p>
+                    </div>
+                {%endif%}
+            </div>
+        </div>
+    {% endblock %}
+</bod>

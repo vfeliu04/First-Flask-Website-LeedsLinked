@@ -1,0 +1,95 @@
+<head>
+    <title>Edit Blog Post</title>
+    <link rel="stylesheet" href="../static/cssFiles/editProfile.css">
+</head>
+<body>
+    {% extends 'base.html' %}
+    {% block content %}
+
+        {% for field, errors in form.errors.items() %}
+            {% for error in errors %}
+                <div class="flash-message" onclick="removeFlashMessage(this)">
+                    <p>{{ error }}</p>
+                    <button class="close-button" onclick="removeFlashMessage(this.parentElement)">&times;</button>
+                </div>
+            {% endfor %}
+        {% endfor %}
+
+        <h2 class="second-header">Edit Profile</h2> 
+
+        <div class="form">
+            <form method="POST" action="" name="edit_profile">
+                {{ form.hidden_tag() }}
+                
+                {{ form.name.label(class="form-label") }}
+
+                {{ form.name(class="form-control") }}
+                <br/>
+
+                {{ form.username.label(class="form-label") }}
+
+                {{ form.username(class="form-control") }}
+                <br/>
+
+                {{ form.email.label(class="form-label") }}
+
+                {{ form.email(class="form-control") }}
+                <br/>
+
+                {{ form.birthdate.label(class="form-label") }}
+
+                {{ form.birthdate(class="date-form-control") }}
+                <br/>
+
+                {{ form.nationality.label(class="form-label") }}
+
+                {{ form.nationality(class="form-control") }}
+                <br/>
+
+                {{ form.age.label(class="form-label") }}
+
+                {{ form.age(class="number-form-control") }}
+                <br/>
+
+                {{ form.major.label(class="form-label") }}
+
+                {{ form.major(class="form-control") }}
+                <br/>
+
+                {{ form.year_of_study.label(class="form-label") }}
+
+                {{ form.year_of_study(class="number-form-control") }}
+                <br/>
+
+                {{ form.snapchat.label(class="form-label") }}
+
+                {{ form.snapchat(class="form-control") }}
+                <br/>
+
+                {{ form.instagram.label(class="form-label") }}
+
+                {{ form.instagram(class="form-control") }}
+                <br/>
+
+                {{ form.linkedIn.label(class="form-label") }}
+
+                {{ form.linkedIn(class="form-control") }}
+                <br/>
+
+                {{ form.relationship_status.label(class="form-label") }}
+
+                {{ form.relationship_status(class="form-control") }}
+                <br/>
+            
+                {{ form.student_bio.label(class="form-label") }}
+
+                {{ form.student_bio(class="form-control", rows="10") }}
+                <br/>
+
+                <br>
+                <input name="profile" type="submit" value="Update Profile">
+                <a href="/profile" class="back-button">Back</a>
+            </form> 
+        <div>
+    {% endblock %}
+</body>

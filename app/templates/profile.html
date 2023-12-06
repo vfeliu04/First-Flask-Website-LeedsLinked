@@ -1,0 +1,90 @@
+<head>
+    <title>Profile</title>
+    <link rel="stylesheet" href="../static/cssFiles/profile.css">
+</head>
+<body>
+    {% extends 'base.html' %}
+    {% block content %}
+        <div class="headerboard">
+            <img class="profile-image" src="../static/images/defaultProfilePic.png" alt="Profile Picture">
+            <div class="headerboard-title">
+                <h2>{{name}}</h2>
+                <div class="headerboard-content">
+                    <h3>Has written <span>{{blog_created_count}}</span> blog(s)</h3>
+                    <h3>|</h3>
+                    <h3>Has read <span>{{blog_read_count}}</span> blog(s)</h3>
+                </div>
+            </div>
+        </div>
+        <div class="dashboard">
+            <div class="dashboard-left">
+                <h3>Student Bio</h3>
+                <p>Name: <span>{{name}}</span></p>
+                {% if birthdate%}
+                <p>Birthday: <span>{{birthdate.strftime('%d %m %y')}}</span>  |  Age <span>{{age}}</span></p>
+                {%endif%}
+                {% if nationality%}
+                <p>Nationality: <span>{{nationality}}</span></p>
+                {%endif%}
+                {% if linkedIn%}
+                <p>Major: <span>{{major}}</span> in year <span>{{year_of_study}}</span></p>
+                {%endif%}
+                <p>Email: <span>{{email}}</span></p>
+                {% if linkedIn%}
+                <p>Snapchat: <span>{{snapchat}}</span></p>
+                {%endif%}
+                {% if instagram%}
+                    <p>Instagram: <span>{{instagram}}</span></p> 
+                {%endif%}
+                {% if linkedIn%}
+                <p>LinkedIn: <a href="{{linkedIn}}" target="_blank"> {{linkedIn}}</a></p>
+                {%endif%}
+                <div class="student_bio">
+                    <h4 class="student-bio">Little bit about myself</h4>
+                    {% if student_bio%}
+                    <p> {{student_bio}} </p>
+                    {%else%}
+                    <p>Hmm this is too little</p>
+                    <p>Add more about yourself by editing your profile!!</p>
+                    {%endif%}
+                </div>
+            </div>
+            <div class="dashboard-right">
+                <h3>Recent Blogs You Read</h3>
+                {% if recent_blogs%}
+                    {% for view in recent_blogs%}
+                        <div class="blog">
+                            <a href="{{ url_for('single_post', id=view.id) }}" class="blog-link">
+                                <h2>{{view.title}}</h2>
+                                <p class="blog-details">
+                                    Written By: <span>{{view.blog_creator}}</span><br/>
+                                    Date Published: <span>{{view.date_posted.strftime('%d %m %y')}}</span><br/>
+                                    Description: <span>{{view.slug}}</span><br/>
+                                </p>
+                            </a>
+                        </div>
+                        <br/>
+                    {% endfor %}
+                {%else%}
+                    <div class="no-results">
+                        <p>It's a bit quite here...</p>
+                        <p>Read blogs and become part of LeedsLinked community</p>
+                        <p>To learn more about LeedsLinked go to to the home page by clicking LeedsLinked and scrool down</p>
+                    </div>
+                {%endif%}
+            </div>
+        </div>
+
+        {%if current_user_id == user_id%}
+        <div class="buttons-dashboard">
+            <a href="/logout" class="logout-button">Logout</a>
+            <a href="{{ url_for('edit_profile', id=current_user.id)}}" class="editProfile-button">Edit Profile</a>
+            <a href="{{ url_for('delete_profile', id=current_user.id)}}" class="deleteProfile-button">Delete Profile</a>
+        </div>
+        {%else%}
+        <div class="buttons-dashboard">
+            <a href="javascript:void(0);" onclick="goBack()" class="back-button">Back</a>
+        </div>
+        {%endif%}
+    {% endblock %}
+</body>

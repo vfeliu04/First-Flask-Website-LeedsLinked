@@ -1,0 +1,72 @@
+<head>
+    <title>Post</title>
+    <link rel="stylesheet" href="../static/cssFiles/post.css">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='like.js') }}" ></script>
+</head>
+<body>
+    {% extends 'base.html' %}
+    {% block content %}
+        <div class="content-container">
+            <div class="blog-post">
+                <h1>{{post.title}}</h1>
+                <div class="blog-detail-alignment">
+                    <p class="blog-post-details">
+                        <a href="{{ url_for('view_other_profile', id=post.blog_creator.id) }}" class="viewer-link">
+                            Written By: <span>{{post.blog_creator.name}}</span><br/>
+                        </a>
+                        Contact Me At: <span>{{post.blog_creator.email}}</span><br/>
+                        Date Posted: <span>{{post.date_posted.strftime('%d %m %y')}}</span><br/>
+                        Tag: <span>{{post.slug}}</span><br/>
+                    </p>
+                </div>
+                <p class="blog-post-content">
+                    {{post.content}}
+                </p>
+                <meta name="csrf-token" content="{{ csrf_token() }}">
+                <div class="like-back-buttons">
+                    <a href="javascript:void(0);" onclick="goBack()" class="back-button">Back</a>
+                    <a class="likes" id="{{ post.id }}">
+                        <!-- href="https://www.flaticon.com/free-icons/like" title="like icons">Like icons created by Gregor Cresnar - Flaticon -->
+                        <img src="../static/images/like.png" alt"Like" id="like" alt="like button">
+                        <span id="slike"> {{ like_count }}</span>
+                        <div id="{{ current_user.id }}"></div>
+                    </a>
+                    <a class="likes" id="{{ post.id }}">
+                        <!-- href="https://www.flaticon.com/free-icons/dislike" title="dislike icons">Dislike icons created by Gregor Cresnar - Flaticon -->
+                        <img src="../static/images/dislike.png" alt"Like" id="dislike" alt="dislike button">
+                        <span id="sdislike"> {{ dislike_count }}</span>
+                        <div id="{{ current_user.id }}"></div>
+                    </a>
+                </div>
+
+            </div>
+            {% if current_user.id == post.blog_creator.id%}
+                <div class="sidebar">
+                    <h3>Viewers</h3>
+                    {% if recent_views%}
+                        {% for user in recent_views%}
+                            {% if current_user != user%}
+                                <a href="{{ url_for('view_other_profile', id=user.id) }}" class="viewer-link">
+                                    <div class="viewers">
+                                        <h2>{{user.name}}</h2>
+                                        <p class="viewers-detail">
+                                            Major: <span>{{user.major}}</span><br/>
+                                            Email: <span>{{user.email}}</span><br/>
+                                        </p>
+                                    </div>
+                                </a>
+                                <br/>
+                            {%endif%}
+                        {% endfor %}
+                    {%else%}
+                        <div class="no-results">
+                            <p>It's a bit quite here...</p>
+                            <p>It seems like no one has viewed your blog yet... Give it some more time!!</p>
+                        </div>
+                    {%endif%}
+                </div>
+            {%endif%}
+        </div>
+    {% endblock %}
+</body>

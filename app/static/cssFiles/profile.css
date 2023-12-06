@@ -1,0 +1,259 @@
+.headerboard {
+    display: flex;
+    align-items: center;
+    width: 90%;
+    margin: 20px auto;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+}
+
+.profile-image {
+    width: 250px; 
+    height: 250px; 
+    margin-left: 10%;
+    border-radius: 50%;
+    object-fit: cover; 
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.headerboard-title {
+    margin-left: 5%;
+    margin-bottom: 2%;
+    vertical-align: top;
+}
+
+.headerboard-title h2 {
+    font-size: 70px;
+    color: #005826;
+    width: 100%;
+    padding: 0px;
+    margin-bottom: 0px;
+}
+
+.headerboard-content{
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.headerboard-content h3{
+    padding: 10px;
+}
+
+.headerboard-title span {
+    font-weight: bold;
+    color: #005826;
+}
+
+.dashboard {
+    display: flex;
+    justify-content: space-around;
+    padding: 10px;
+}
+
+.dashboard-left, .dashboard-right {
+    align-items: center;
+    width: 40%;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 20px;
+    background-color: #fff;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.dashboard h3 {
+    color: #005826;
+    font-size: 2em;
+    border-bottom: 2px solid #005826;
+    padding-bottom: 10px;
+}
+
+.dashboard p {
+    font-size: 1.1em;
+    color: #333;
+}
+
+.dashboard h4 {
+    color: #005826;
+    font-size: 1.5em;
+    border-bottom: 2px solid #005826;
+    padding-bottom: 10px;
+}
+
+.dashboard span {
+    font-weight: bold;
+    color: #005826;
+}
+
+.dashboard a {
+    text-decoration: none;
+    font-weight: bold;
+    color: #005826;
+}
+
+.student_bio {
+    margin: 30px;
+}
+
+.blog {
+    margin-top: 20px;
+    border: 1px solid rgb(177, 177, 177);
+    border-radius: 5px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.blog-details {
+    font-weight: bold;
+    color: #005826;
+}
+
+.blog-link {
+    text-decoration: none;
+    color: #000;
+}
+
+.blog-link:hover{
+    color: #005826;
+}
+
+.no-results {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #f4f4f4;
+    color: #777;
+}
+
+.no-results p {
+    text-align: middle;
+    vertical-align: center;
+    margin: 10px 0;
+    font-size: 1.1em;
+}
+
+.buttons-dashboard {
+    display: flex;
+    align-items: center;
+    width: 90%;
+    margin: 20px auto;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.editProfile-button {
+    display: block;
+    width: 60%;
+    padding: 15px;
+    margin: 20px;
+    text-align: center;
+    background-color: #005826;
+    color: #fff;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.editProfile-button:hover {
+    box-shadow: 0 0 100px rgba(0, 0, 0, 0.3); 
+}
+
+.logout-button {
+    display: block;
+    width: 60%;
+    padding: 10px;
+    margin: 20px;
+    text-align: center;
+    background-color: #000000;
+    color: #fff;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.logout-button:hover {
+    box-shadow: 0 0 100px rgba(0, 0, 0, 0.3); 
+}
+
+.deleteProfile-button {
+    display: block;
+    width: 60%;
+    margin: 20px;
+    padding: 10px;
+    text-align: center;
+    background-color: #8A221E;
+    color: #fff;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.deleteProfile-button:hover {
+    box-shadow: 0 0 100px rgba(0, 0, 0, 0.3); 
+}
+
+.back-button {
+    display: block;
+    width: 60%;
+    padding: 15px;
+    margin: 20px auto;
+    text-align: center;
+    background-color: #005826;
+    color: #fff;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.back-button:hover {
+    box-shadow: 0 0 100px rgba(0, 0, 0, 0.3); 
+}
+
+@media screen and (max-width: 768px) {
+
+    .profile-image {
+        width: 100; 
+        height: 100px; 
+    }
+
+    .headerboard-title h2 {
+        font-size: 30px;
+    }
+
+    .headerboard-content h3{
+        font-size: 15px;
+    }
+
+    .dashboard p {
+        font-size: 0.7em;
+        color: #333;
+    }
+
+    .buttons-dashboard a{
+        font-size: 0.7em;
+    }
+
+}

@@ -1,0 +1,237 @@
+.content-container {
+    display: flex;
+}
+
+.main-content {
+    flex: 3;
+    padding: 20px;
+}
+
+.blog-post {
+    max-width: 35%;
+    margin: 20px auto;
+    padding: 15px;
+    border: 1px solid #ddd;
+    text-align: center; 
+    border-radius: 5px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.blog-post h2 {
+    font-size: 30px;
+    color: #005826;
+    margin-bottom: 10px;
+}
+
+.blog-post-details {
+    padding: 10px;
+    width: 100%;
+    font-size: 16px;
+    color: #555;
+    border-bottom: 2px solid #005826;
+    border-top: 2px solid #005826;
+}
+
+.blog-post-details span {
+    font-weight: bold;
+    color: #005826;
+}
+
+.viewBlog-post-button {
+    display: inline-block;
+    padding: 8px 12px;
+    background-color: #005826;
+    color: #fff;
+    text-decoration: none;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.delete-post-button {
+    display: inline-block;
+    padding: 8px 12px;
+    background-color: #8A221E;
+    color: #fff;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+.delete-post-button:hover {
+    background-color: #610f0c;
+}
+
+.add-post-button {
+    display: block;
+    width: 30%;
+    margin: 20px auto;
+    padding: 10px;
+    text-align: center;
+    background-color: #006127;
+    color: #fff;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.add-post-button:hover {
+    box-shadow: 0 0 100px rgba(0, 0, 0, 0.3);
+}
+
+.no-results {
+    text-align: center;
+    margin: 20px 0;
+    padding: 20px;
+    background-color: #f4f4f4;
+    color: #777;
+}
+
+.no-results p {
+    margin: 10px 0;
+    font-size: 1.1em;
+}
+
+.sidebar {
+    order: -1;
+    position: fixed;
+    height: 100%;
+    width: 25%;
+    overflow-y: auto;
+    padding: 10px;
+    text-align: center;
+    background-color: #ffffff;
+    box-shadow: 0 0 100px rgba(0, 0, 0, 0.3);
+}
+
+.sidebar h3 {
+    font-size: 1.7em;
+    color: #005826;
+    border-bottom: 2px solid #005826;
+    margin-bottom: 15px;
+    padding-top: 40px;
+    padding-bottom: 50px;
+    font-size: 30px;
+}
+
+.myBlog-post {
+    padding: 10px;
+    padding-bottom: 20px;
+    border: 1px solid #ddd;
+    text-align: center; 
+    border-radius: 5px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.myBlog-post h2 {
+    font-size: 30px;
+    color: #005826;
+    margin-bottom: 10px;
+}
+
+.sidebar-add-post-button {
+    display: block;
+    margin: 20px auto;
+    padding: 10px;
+    text-align: center;
+    background-color: #008b3c;
+    color: #fff;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.myBlog-post-details {
+    padding: 10px;
+    width: 100%;
+    font-size: 16px;
+    color: #555;
+    border-bottom: 2px solid #005826;
+    border-top: 2px solid #005826;
+}
+
+.myBlog-post-details span {
+    font-weight: bold;
+    color: #005826;
+}
+
+.sidebar-viewBlog-post-button {
+    display: inline-block;
+    padding: 5px;
+    background-color: #005826;
+    color: #fff;
+    text-decoration: none;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.sidebar-delete-post-button {
+    display: inline-block;
+    padding: 5px;
+    background-color: #8A221E; 
+    color: #fff;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+.sidebar-delete-post-button:hover {
+    background-color: #610f0c;
+}
+
+.sidebar-add-post-button {
+    display: block;
+    margin: 20px auto;
+    padding: 10px;
+    text-align: center;
+    background-color: #006127;
+    color: #fff;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.sidebar-add-post-button:hover {
+    box-shadow: 0 0 100px rgba(0, 0, 0, 0.3);
+}
+
+@media screen and (max-width: 1000px) {
+
+    .myBlog-post h2{
+        font-size: 20px;
+    }
+
+}
+
+@media screen and (max-width: 768px) {
+
+    .sidebar{
+        display: none;
+    }
+
+}

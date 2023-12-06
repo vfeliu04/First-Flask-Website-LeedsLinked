@@ -1,0 +1,48 @@
+<head>
+    <title>Register</title>
+    <link rel="stylesheet" href="../static/cssFiles/LonginAndRegister.css">
+</head>
+<body>
+    {% extends 'base.html' %}
+    {% block content %}
+        {% for field, errors in form.errors.items() %}
+            {% for error in errors %}
+                <div class="flash-message" onclick="removeFlashMessage(this)">
+                    <p>{{ error }}</p>
+                    <button class="close-button" onclick="removeFlashMessage(this.parentElement)">&times;</button>
+                </div>
+            {% endfor %}
+        {% endfor %}
+
+        <h2 class="second-header">Register</h2>
+        
+        <div class="form">
+            <form method="POST" action="" name="register">
+                {{ form.hidden_tag() }}
+                
+                <label for="name">Name*</label>
+                <input type="text" id="name" name="name" placeholder="Enter your name">
+
+                <label for="username">Username*</label>
+                <input type="text" id="username" name="username" placeholder="Enter username">
+                
+                <label for="email">Email*</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email">
+
+                <label for="password_hash">Password*</label>
+                <input type="password" id="password_hash" name="password_hash" placeholder="Enter desired password">
+
+                <label for="password_hash2">Verify Password*</label>
+                <input type="password" id="password_hash2" name="password_hash2" placeholder="Enter desired password">
+                
+                <br>
+                <p>Already have an account? <a href="/login">Click here to Login</a></p>
+                <br>
+                <p>By clicking Register, you agree to the <a href="#">Terms of Use</a>, the <a href="#">Privacy Policy</a>, and <a href="#">Cookie Policy</a> of LeedsLinked.</p>
+
+                <br>
+                <input name="Register" type="submit" value="Register">
+            </form>
+        <div>
+    {% endblock %}
+</body>

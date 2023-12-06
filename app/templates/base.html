@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/cssFiles/navBar.css">
+    <script defer src="../static/main.js"></script>
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <!-- (University of Leeds, 2021) -->
+            <img src="../static/images/UniversityOfLeedsLogo.png" alt="LeedsLinked Logo">
+            <h1><a href="/">LeedsLinked</a></h1>
+        </div>
+        <nav>
+            <ul>
+                {% if current_user.is_authenticated%}
+                <li><a href="/blogPosts">Blog Posts</a></li>
+                <li><a href="/my_blogs">My Blogs</a></li>
+                <li><a href="/profile">Profile</a></li>
+                <li>
+                    <form method="POST" action="{{url_for('search')}} "class="search-container">
+                        {{ form.hidden_tag() }}
+                        <input type="text" name="searched" class="search-input" placeholder="Search Blog...">
+                        <button type="submit" class="search-button">Search</button>
+                    </form>
+                </li>
+                {%endif%}
+                {% if not (current_user.is_authenticated)%}
+                <li><a href="/login">Login</a></li>
+                <li><a href="/register">Register</a></li>
+                {%endif%}
+            </ul>
+        </nav>
+    </header>
+
+    {% for message in get_flashed_messages() %}
+        <div class="flash-message" onclick="removeFlashMessage(this)">
+            <p>{{ message }}</p>
+        </div>
+    {% endfor %}
+
+    {% block content %}
+    {% endblock %}
+
+</body>
+</html>

@@ -1,0 +1,39 @@
+<head>
+    <title>Add Blog Post</title>
+    <link rel="stylesheet" href="../static/cssFiles/addAndEditBlog.css">
+</head>
+<body>
+    {% extends 'base.html' %}
+    {% block content %}
+
+        {% for field, errors in form.errors.items() %}
+            {% for error in errors %}
+                <div class="flash-message" onclick="removeFlashMessage(this)">
+                    <p>{{ error }}</p>
+                    <button class="close-button" onclick="removeFlashMessage(this.parentElement)">&times;</button>
+                </div>
+            {% endfor %}
+        {% endfor %}
+
+        <h2 class="second-header">Add Blog</h2> 
+
+        <div class="form">
+            <form method="POST" action="" name="addBlog">
+                {{ form.hidden_tag() }}
+                
+                <label for="title">Title</label>
+                <input type="text" id="title" name="title" placeholder="Blog Title...">
+                
+                <label for="slug">Slug</label>
+                <input type="text" id="slug" name="slug" placeholder="What is your blog about...">
+
+                <label for="content">Content</label>
+                <textarea id="content" name="content" rows="10" placeholder="Write your blog..."></textarea>
+
+                <br>
+                <input name="addBlog" type="submit" value="Add Blog">
+                <a href="javascript:void(0);" onclick="goBack()" class="back-button">Back</a>
+            </form> 
+        <div>
+    {% endblock %}
+</body>
