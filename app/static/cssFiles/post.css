@@ -131,6 +131,11 @@
 }
 
 .viewer-link {
+    text-decoration: none;
+    color: #000;
+}
+
+.viewer-link-name {
     text-decoration: underline;
     color: #000;
 }
