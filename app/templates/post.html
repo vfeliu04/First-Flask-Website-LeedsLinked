@@ -12,7 +12,7 @@
                 <h1>{{post.title}}</h1>
                 <div class="blog-detail-alignment">
                     <p class="blog-post-details">
-                        <a href="{{ url_for('view_other_profile', id=post.blog_creator.id) }}" class="viewer-link">
+                        <a href="{{ url_for('view_other_profile', id=post.blog_creator.id) }}" class="viewer-link-blog">
                             Written By: <span>{{post.blog_creator.name}}</span><br/>
                         </a>
                         Contact Me At: <span>{{post.blog_creator.email}}</span><br/>
@@ -59,6 +59,11 @@
                                 <br/>
                             {%endif%}
                         {% endfor %}
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
                     {%else%}
                         <div class="no-results">
                             <p>It's a bit quite here...</p>

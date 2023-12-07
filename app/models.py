@@ -83,7 +83,7 @@ class Posts(db.Model):
             days_difference = (current_date - self.date_posted).days
             # If the day difference is more than 10 then make it so that it has a lower score
             if days_difference >= 10:
-                recency_score = days_difference
+                recency_score = days_difference * -1
             else:
                 recency_score = recency_weight * days_difference
         else:

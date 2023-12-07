@@ -130,6 +130,11 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
+.viewer-link-blog {
+    text-decoration: underline;
+    color: #000;
+}
+
 .viewer-link {
     text-decoration: none;
     color: #000;
